@@ -17,6 +17,7 @@
                     {% for header in cafe_objs[0]: %}
                     <th scope="col">{{ header }}</th>
                     {% endfor %}
+                    <th>Delete</th>
                 </tr>
 
                 </thead>
@@ -30,6 +31,7 @@
                     <th scope="row">{{ cafe }}</th>
                     {% endif %}
                     {% endfor %}
+                    <th><button class="btn btn-outline-light">X</button></th>
                 </tr>
                 {% endfor %}
 
