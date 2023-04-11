@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Cafe {% endblock %}
+
+{% block content %}
+
+{% macro render_input(input_name) %}
+
+<div class="mb-3">
+
+{{ input_name.label(class="form-label") }}
+{{ input_name(class="form-control") }}
+
+{% for err in input_name.errors: %}
+    <div class="mt-2">
+        <span class="text-danger">{{ err }}</span>
+    </div>
+{% endfor %}
+
+</div>
+
+{% endmacro %}
+
+<div class="container mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+
+                <h1 class="mb-5">Add a new cafe into the database</h1>
+
+                <form method="POST", action="{{ url_for('add') }}">
+
+                    {{ render_input(form.c_name) }}
+                    {{ render_input(form.c_location) }}
+                    {{ render_input(form.c_open) }}
+                    {{ render_input(form.c_close) }}
+                    {{ render_input(form.c_coffee) }}
+                    {{ render_input(form.c_wifi) }}
+                    {{ render_input(form.c_power) }}
+
+                    <button type="submit" class="btn btn-lg btn-outline-light mt-3">Add</button>
+                </form>
+                <p class="space-above py-5"><a href="#">See all cafes</a></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

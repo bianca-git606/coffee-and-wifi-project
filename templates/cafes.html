@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} Cafes {% endblock %}
+
+{% block content %}
+
+<div class="mt-5">
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1 class="mb-5">All Cafes</h1>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    {% for header in cafe_objs[0]: %}
+                    <th scope="col">{{ header }}</th>
+                    {% endfor %}
+                </tr>
+
+                </thead>
+                <tbody>
+                {% for obj in cafe_objs[1:]: %}
+                <tr>
+                    {% for cafe in obj:%}
+                    {% if obj.index(cafe) == 1: %}
+                    <th scope="row"><a href="{{ cafe }}">Maps Link</a></th>
+                    {% else: %}
+                    <th scope="row">{{ cafe }}</th>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            <p><a href="#">Return to index page</a></p>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
